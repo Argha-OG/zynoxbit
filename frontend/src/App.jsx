@@ -3,15 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 import { Button } from "@/components/ui/button";
+import Navbar from './components/Navbar/Navbar';
+import MainLayout from './layout/MainLayout';
 
 function App() {
 
   return (
     <>
-<h1>Hello World</h1>
-<Button>Hello</Button>
+      <MainLayout/>
     </>
-  )
+  );
 }
 
 export default App
