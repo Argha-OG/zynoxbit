@@ -23,14 +23,14 @@ const HomePage = () => {
                 className="inline-block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden"
                 href="#"
               >
-                🖥️ Explore our services
+                Explore our services
               </a>
 
               <a
                 className="ml-2 inline-block rounded-sm border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:ring-3 focus:outline-hidden"
                 href="#"
               >
-                📞 Let’s talk strategy
+                Let’s talk strategy
               </a>
 
               <p className="mt-4 text-gray-700">

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Navbar from './components/Navbar/Navbar';
-import HomePage from "./pages/homePage";
+import HomePage from "./pages/HomePage";
 
 function App() {
 
