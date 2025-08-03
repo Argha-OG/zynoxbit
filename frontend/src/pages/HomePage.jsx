@@ -32,6 +32,10 @@ const HomePage = () => {
               >
                 📞 Let’s talk strategy
               </a>
+
+              <p className="mt-4 text-gray-700">
+                This Website is Under Construction. Please Contact Our Web Expert On linkedin <a href="https://www.linkedin.com/in/argha-biswas/" className='text-2xl font-semibold'>Argha Biswas</a>
+              </p>
             </div>
           </div>
 
