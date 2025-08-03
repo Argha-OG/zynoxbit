@@ -2,13 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import Navbar from './components/Navbar/Navbar';
-import MainLayout from './layout/MainLayout';
+import HomePage from "./pages/homePage";
 
 function App() {
 
   return (
     <>
-      <MainLayout/>
+      <Navbar />
+      <HomePage />
     </>
   );
 }
