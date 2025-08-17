@@ -4,7 +4,7 @@ import logo from "../../assets/zynox.png"
 const Navbar = () => {
   return (
     <>
-      <header className="bg-white top-0 sticky shadow-2xl">
+      <header className="bg-white top-0 sticky shadow-2xl z-50">
         <div className="mx-auto  max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
