@@ -194,7 +194,7 @@ const Footer = () => {
                     href="#"
                   >
                     {" "}
-                    Web Design{" "}
+                    Web Design & UI{" "}
                   </a>
                 </li>
 
@@ -204,7 +204,27 @@ const Footer = () => {
                     href="#"
                   >
                     {" "}
-                    Marketing{" "}
+                    Web Security{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-700 transition hover:text-gray-700/75"
+                    href="#"
+                  >
+                    {" "}
+                    Digital Marketing{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-700 transition hover:text-gray-700/75"
+                    href="#"
+                  >
+                    {" "}
+                    Artificial Intelligence (AI){" "}
                   </a>
                 </li>
 
@@ -215,6 +235,16 @@ const Footer = () => {
                   >
                     {" "}
                     Google Ads{" "}
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-700 transition hover:text-gray-700/75"
+                    href="#"
+                  >
+                    {" "}
+                    Business Research{" "}
                   </a>
                 </li>
               </ul>
@@ -269,7 +299,8 @@ const Footer = () => {
                 <li>
                   <a
                     className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                    href="#"
+                    href="mailto:zynoxbit@gmail.com"
+                    target="_blank"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -286,14 +317,17 @@ const Footer = () => {
                       />
                     </svg>
 
-                    <span className="flex-1 text-gray-700">john@doe.com</span>
+                    <span className="flex-1 text-gray-700">
+                      zynoxbit@gmail.com
+                    </span>
                   </a>
                 </li>
 
                 <li>
                   <a
                     className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                    href="#"
+                    href="https://wa.me/+601114004965"
+                    target="_blank"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -310,7 +344,9 @@ const Footer = () => {
                       />
                     </svg>
 
-                    <span className="flex-1 text-gray-700">0123456789</span>
+                    <span className="flex-1 text-gray-700">
+                      +60 11-1400 4965
+                    </span>
                   </a>
                 </li>
 
@@ -336,7 +372,8 @@ const Footer = () => {
                   </svg>
 
                   <address className="-mt-0.5 flex-1 text-gray-700 not-italic">
-                    213 Lane, London, United Kingdom
+                    South City Plaza, Taman Serdang Perdana, 43300 Seri
+                    Kembangan, Selangor, Malaysia
                   </address>
                 </li>
               </ul>
