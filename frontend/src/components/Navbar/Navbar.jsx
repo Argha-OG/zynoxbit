@@ -1,5 +1,5 @@
-import React from 'react'
-import logo from "../../assets/zynox.png"
+import React from "react";
+import logo from "../../assets/zynox.png";
 
 const Navbar = () => {
   return (
@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className="md:flex md:items-center md:gap-12">
               <a className="block text-teal-600" href="#">
                 <span className="sr-only">Home</span>
-                <img className='h-14' src={logo} alt="" />
+                <img className="h-14" src={logo} alt="" />
               </a>
             </div>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
                       href="#"
                     >
                       {" "}
-                      Carieer{" "}
+                      Career{" "}
                     </a>
                   </li>
 
@@ -123,6 +123,6 @@ const Navbar = () => {
       </header>
     </>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
