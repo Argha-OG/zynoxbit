@@ -1,14 +1,15 @@
 import React from "react";
+import "./Services.css";
 
 const Services = () => {
   return (
-    <div className="bg-blue-300">
+    <div className="bg-blue-300 services py-5">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 ">
-        <h1 className="text-3xl font-bold  py-5"> Our Core Solutions</h1>
-        <div className="grid grid-cols-2 grid-rows-2 gap-10">
-          <div className="">
+        <h1 className="text-4xl text-center font-bold pb-15"> Our Core Solutions</h1>
+        <div className="grid grid-cols-2 grid-rows-2 space-x-10">
+          <div className="space-y-3">
             <div>
-              <h1 className="text-2xl font-semibold pt-2">
+              <h1 className="text-2xl font-semibold">
                 High-Performance Digital Platforms
               </h1>
               <p className="text-justify">
@@ -17,10 +18,18 @@ const Services = () => {
                 drive customer acquisition and build your brand's authority.
               </p>
             </div>
-            <img src="high.jpg" className="rounded-xl" alt="" />
+            <img
+              src="high.jpg"
+              className="rounded-xl transition duration-300 ease-in-out hover:-translate-y-2"
+              alt=""
+            />
           </div>
-          <div className="">
-            <img src="high.jpg" className="rounded-xl" alt="" />
+          <div className="space-y-3">
+            <img
+              src="high.jpg"
+              className="rounded-xl transition duration-300 ease-in-out hover:-translate-y-2"
+              alt=""
+            />
             <div>
               <h1 className="text-2xl font-semibold pt-2">
                 Growth-Driven Social Engagement
@@ -33,7 +42,7 @@ const Services = () => {
               </p>
             </div>
           </div>
-          <div className="">
+          <div className="space-y-3">
             <div>
               <h1 className="text-2xl font-semibold pt-2">
                 Online Visibility & Security
@@ -45,10 +54,18 @@ const Services = () => {
                 performing at its peak..
               </p>
             </div>
-            <img src="high.jpg" className="rounded-xl" alt="" />
+            <img
+              src="high.jpg"
+              className="rounded-xl transition duration-300 ease-in-out hover:-translate-y-2"
+              alt=""
+            />
           </div>
-          <div className="">
-            <img src="high.jpg" className="rounded-xl" alt="" />
+          <div className="space-y-3">
+            <img
+              src="high.jpg"
+              className="rounded-xl transition duration-300 ease-in-out hover:-translate-y-2"
+              alt=""
+            />
             <div>
               <h1 className="text-2xl font-semibold pt-2">
                 Intuitive User Experience (UI/UX)
