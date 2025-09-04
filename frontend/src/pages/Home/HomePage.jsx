@@ -1,13 +1,13 @@
 import React from "react";
 import HeroGif from "../../assets/hero.gif";
-import MainLayout from "../../../layout/MainLayout.jsx";
 import WebGif from "../../assets/webapp.gif";
 import WebMainGif from "../../assets/webmain.gif";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (
     <>
-      <div className="bg-blue-300 pb-30">
+      <div className="bg-blue-300 pb-30 home">
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
             <div>
@@ -48,7 +48,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* <div className="products h-auto bg-blue-500 rounded-b-[96px] px-4 py-8 sm:px-6 lg:px-8">
+      <div className="products h-auto bg-blue-500 rounded-b-[96px] px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-screen-xl grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 -mt-36">
           <a
             href="#"
@@ -104,7 +104,7 @@ const HomePage = () => {
             </a>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
