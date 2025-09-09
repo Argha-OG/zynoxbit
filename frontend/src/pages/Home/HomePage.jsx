@@ -12,17 +12,17 @@ const HomePage = () => {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
             <div>
               <div className="max-w-lg md:max-w-none">
-                <h2 className="text-4xl lg:text-4xl font-semibold text-gray-900 sm:text-2xl max-w-2/3">
+                <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 sm:text-2xl max-w-2/3">
                   Transforming Your Business to Go Digital & Grow Smarter
                 </h2>
 
-                <p className="mt-4 text-gray-700">
+                <p className="mt-4 text-gray-700 text-xl">
                   We're your digital growth partner — crafting websites,
-                  managing Meta ads, and driving results through smart digital
+                  managing Meta ads, and driving results through smart digital  
                   strategies. Let’s take your brand to the next level.
                 </p>
               </div>
-              <div className="mt-12 space-between text-2xl lg:text-2xl">
+              {/* <div className="mt-12 space-between text-2xl lg:text-2xl">
                 <a
                   className="inline-block rounded-4xl border border-blue-600 bg-blue-600 px-8 py-2 text-lg font-medium text-white hover:bg-white hover:text-black focus:ring-3 focus:outline-hidden"
                   href="https://wa.me/+601114004965"
@@ -38,7 +38,7 @@ const HomePage = () => {
                 >
                   Let’s talk strategy
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <div>
@@ -48,7 +48,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* <div className="products h-auto bg-blue-500 rounded-b-[96px] px-4 py-8 sm:px-6 lg:px-8">
+      <div className="products h-auto bg-blue-500 rounded-b-[96px] px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-screen-xl grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 -mt-36">
           <a
             href="#"
@@ -104,7 +104,7 @@ const HomePage = () => {
             </a>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
