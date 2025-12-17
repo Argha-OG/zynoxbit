@@ -1,10 +1,13 @@
 import React from 'react';
 import { SERVICE_PACKAGES, A_LA_CARTE_SERVICES, PROCESS_STEPS } from '../data/services';
 import { SERVICE_FAQS } from '../data/faqs';
-import { Check, Star, Compass, Target, Code as CodeIcon, TrendingUp, Palette, Search, FileText, Image, Zap, Mail } from 'lucide-react';
+import { Check, Star, Compass, Target, Code as CodeIcon, TrendingUp, Palette, Search, FileText, Image, Zap, Mail, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Accordion from '../components/Accordion';
+import SEO from '../components/SEO';
+
+import TechStack from '../components/TechStack';
 
 // Icon mapping for a la carte services
 const iconMap = {
@@ -27,6 +30,10 @@ const processIconMap = {
 const Services = () => {
     return (
         <div className="py-24 px-4">
+            <SEO
+                title="Services"
+                description="Explore our MERN Stack development packages. From Ready Websites in 24 hours to Full Custom Ecommerce Solutions. Best pricing in Bangladesh."
+            />
             {/* 1. Page Header */}
             <div className="max-w-7xl mx-auto text-center mb-20">
                 <motion.h1
@@ -47,53 +54,140 @@ const Services = () => {
                 </motion.p>
             </div>
 
-            {/* 2. Pricing Packages */}
-            <div className="max-w-7xl mx-auto mb-32">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {SERVICE_PACKAGES.map((pkg, index) => (
+            {/* 2. MERN Stack Packages */}
+            <div className="max-w-7xl mx-auto mb-20">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">MERN Stack Solutions</h2>
+                    <p className="text-xl text-muted-foreground">High-performance web applications built with MongoDB, Express, React, and Node</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {SERVICE_PACKAGES.filter(p => p.category === 'MERN Stack').map((pkg, index) => (
                         <motion.div
                             key={pkg.id}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
-                            className={`relative p-8 rounded-2xl border ${pkg.isHighlighted
-                                    ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10 scale-105 z-10'
-                                    : 'border-border bg-card/50 backdrop-blur-sm'
-                                }`}
+                            className={`group flex flex-col relative rounded-2xl border transition-all duration-300 overflow-hidden ${pkg.isHighlighted
+                                ? 'border-primary bg-primary/5 shadow-xl shadow-primary/10 scale-105 z-10'
+                                : 'border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card hover:shadow-lg'
+                                } dark:border-white/10 border-gray-200`}
                         >
-                            {pkg.isHighlighted && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
-                                    <Star size={14} fill="currentColor" /> Most Popular
-                                </div>
-                            )}
-                            <h3 className="text-2xl font-bold mb-2">{pkg.tierName}</h3>
-                            <div className="text-4xl font-bold mb-6">
-                                ৳{pkg.priceMonthly.toLocaleString()}
-                                <span className="text-base font-normal text-muted-foreground">/month</span>
+                            {/* Feature Image */}
+                            <div className="h-48 overflow-hidden relative flex-shrink-0">
+                                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10" />
+                                <img
+                                    src={pkg.image}
+                                    alt={pkg.tierName}
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                />
+                                {pkg.isHighlighted && (
+                                    <div className="absolute top-4 right-4 z-20 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-1">
+                                        <Star size={12} fill="currentColor" /> Best Seller
+                                    </div>
+                                )}
                             </div>
-                            <ul className="space-y-4 mb-8">
-                                {pkg.features.map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <Check className="text-primary h-5 w-5 flex-shrink-0" />
-                                        <span className="text-muted-foreground">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <Link
-                                to={`/contact?package=${pkg.tierName.toLowerCase()}`}
-                                className={`block w-full py-3 rounded-lg font-semibold text-center transition-colors ${pkg.isHighlighted
-                                        ? 'bg-primary text-primary-foreground hover:opacity-90'
+
+                            <div className="p-8 flex flex-col flex-grow">
+                                <h3 className="text-2xl font-bold mb-2">{pkg.tierName}</h3>
+                                <div className="text-4xl font-bold mb-6 text-primary">
+                                    {typeof pkg.priceMonthly === 'number'
+                                        ? `৳${pkg.priceMonthly.toLocaleString()}`
+                                        : pkg.priceMonthly}
+                                    {typeof pkg.priceMonthly === 'number' && <span className="text-base font-normal text-muted-foreground">/package</span>}
+                                </div>
+                                <ul className="space-y-4 mb-8 flex-grow">
+                                    {pkg.features.map((feature, i) => (
+                                        <li key={i} className="flex items-center gap-3">
+                                            <div className="p-1 rounded-full bg-primary/10 text-primary">
+                                                <Check size={14} className="stroke-[3px]" />
+                                            </div>
+                                            <span className="text-foreground/90 font-medium">{feature}</span>
+                                        </li>
+                                    ))}
+                                    {pkg.unavailableFeatures && pkg.unavailableFeatures.map((feature, i) => (
+                                        <li key={`un-${i}`} className="flex items-center gap-3 opacity-50">
+                                            <div className="p-1 rounded-full bg-red-500/10 text-red-500">
+                                                <X size={14} className="stroke-[3px]" />
+                                            </div>
+                                            <span className="text-muted-foreground line-through decoration-red-500/50 decoration-2">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Link
+                                    to={`/services/${pkg.id}`}
+                                    className={`block w-full mt-auto py-4 rounded-xl font-bold text-center transition-all duration-300 transform group-hover:translate-y-[-2px] ${pkg.isHighlighted
+                                        ? 'bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40'
                                         : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                                    }`}
-                            >
-                                {pkg.ctaText}
-                            </Link>
+                                        }`}
+                                >
+                                    {pkg.ctaText}
+                                </Link>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
 
-            {/* 3. Compare Features Table */}
+            {/* 3. WordPress Packages */}
+            <div className="max-w-7xl mx-auto mb-32">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">WordPress Solutions</h2>
+                    <p className="text-xl text-muted-foreground">Rapid deployment and easy content management</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                    {SERVICE_PACKAGES.filter(p => p.category === 'WordPress').map((pkg, index) => (
+                        <motion.div
+                            key={pkg.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="group flex flex-col relative rounded-2xl border border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card hover:shadow-lg transition-all duration-300 dark:border-white/10 border-gray-200 overflow-hidden"
+                        >
+                            {/* Feature Image */}
+                            <div className="h-48 overflow-hidden relative flex-shrink-0">
+                                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10" />
+                                <img
+                                    src={pkg.image}
+                                    alt={pkg.tierName}
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                />
+                            </div>
+
+                            <div className="p-8 flex flex-col flex-grow">
+                                <h3 className="text-2xl font-bold mb-2">{pkg.tierName}</h3>
+                                <div className="text-4xl font-bold mb-6 text-primary">
+                                    {typeof pkg.priceMonthly === 'number'
+                                        ? `৳${pkg.priceMonthly.toLocaleString()}`
+                                        : pkg.priceMonthly}
+                                </div>
+                                <ul className="space-y-4 mb-8 flex-grow">
+                                    {pkg.features.map((feature, i) => (
+                                        <li key={i} className="flex items-center gap-3">
+                                            <div className="p-1 rounded-full bg-primary/10 text-primary">
+                                                <Check size={14} className="stroke-[3px]" />
+                                            </div>
+                                            <span className="text-foreground/90 font-medium">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Link
+                                    to={`/services/${pkg.id}`}
+                                    className="block w-full mt-auto py-4 rounded-xl font-bold text-center bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all duration-300"
+                                >
+                                    {pkg.ctaText}
+                                </Link>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+
+            {/* 3. Tech Stack */}
+            <div className="mb-32">
+                <TechStack />
+            </div>
+
+            {/* 4. Compare Features Table */}
             <div className="max-w-7xl mx-auto mb-32">
                 <h2 className="text-4xl font-bold text-center mb-12">Compare All Features</h2>
                 <div className="overflow-x-auto glass-card rounded-2xl border border-border">

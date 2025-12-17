@@ -10,6 +10,7 @@ import { TEAM_MEMBERS } from '../data/team';
 import Accordion from '../components/Accordion';
 import Modal from '../components/Modal';
 import { useSearchParams } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const contactSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters"),
@@ -89,6 +90,10 @@ const Contact = () => {
 
     return (
         <div className="py-24 px-4">
+            <SEO
+                title="Contact Us"
+                description="Get in touch with ZynoxBit. Call us, email us, or visit our office in Dhaka. We are ready to start your next digital project."
+            />
             {/* 1. Page Header */}
             <div className="max-w-7xl mx-auto text-center mb-20">
                 <motion.h1

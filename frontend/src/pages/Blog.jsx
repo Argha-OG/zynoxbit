@@ -3,6 +3,7 @@ import { BLOG_POSTS } from '../data/blogs';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight, Mail } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Blog = () => {
     const [email, setEmail] = useState('');
@@ -21,6 +22,10 @@ const Blog = () => {
 
     return (
         <div className="py-24 px-4">
+            <SEO
+                title="Blog"
+                description="Read the latest insights on tech, design, and business from the ZynoxBit team."
+            />
             {/* 1. Page Header */}
             <div className="max-w-7xl mx-auto text-center mb-20">
                 <motion.h1

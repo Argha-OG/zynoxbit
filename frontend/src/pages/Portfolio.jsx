@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Filter } from 'lucide-react';
 import Modal from '../components/Modal';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Portfolio = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -18,6 +19,10 @@ const Portfolio = () => {
 
     return (
         <div className="py-24 px-4">
+            <SEO
+                title="Portfolio"
+                description="View our latest projects. Web development, digital marketing, and branding case studies from ZynoxBit."
+            />
             {/* 1. Page Header */}
             <div className="max-w-7xl mx-auto text-center mb-20">
                 <motion.h1
@@ -48,8 +53,8 @@ const Portfolio = () => {
                             key={category}
                             onClick={() => setSelectedCategory(category)}
                             className={`px-6 py-2 rounded-full font-medium transition-all ${selectedCategory === category
-                                    ? 'bg-primary text-primary-foreground shadow-lg'
-                                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                                ? 'bg-primary text-primary-foreground shadow-lg'
+                                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
                                 }`}
                         >
                             {category}

@@ -9,6 +9,7 @@ import { GENERAL_FAQS } from '../data/faqs';
 import { PORTFOLIO_ITEMS } from '../data/portfolio';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import Accordion from '../components/Accordion';
+import SEO from '../components/SEO';
 
 const Home = () => {
     const targetRef = useRef(null);
@@ -42,6 +43,10 @@ const Home = () => {
 
     return (
         <div className="relative overflow-hidden">
+            <SEO
+                title="Home"
+                description="ZynoxBit - #1 Software Agency in Bangladesh. We build MERN stack websites, ecommerce platforms, and business portfolios. Delivery in 24 hours."
+            />
             {/* 1. Hero Section - Premium 3D Design */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
                 {/* Animated Gradient Background */}
@@ -460,8 +465,10 @@ const Home = () => {
                                 )}
                                 <h3 className="text-2xl font-bold mb-2">{pkg.tierName}</h3>
                                 <div className="text-4xl font-bold mb-6">
-                                    ৳{pkg.priceMonthly.toLocaleString()}
-                                    <span className="text-base font-normal text-muted-foreground">/month</span>
+                                    {typeof pkg.priceMonthly === 'number'
+                                        ? `৳${pkg.priceMonthly.toLocaleString()}`
+                                        : pkg.priceMonthly}
+                                    {typeof pkg.priceMonthly === 'number' && <span className="text-base font-normal text-muted-foreground">/package</span>}
                                 </div>
                                 <ul className="space-y-3 mb-8">
                                     {pkg.features.slice(0, 3).map((feature, i) => (
@@ -472,13 +479,13 @@ const Home = () => {
                                     ))}
                                 </ul>
                                 <Link
-                                    to="/services"
+                                    to={`/services/${pkg.id}`}
                                     className={`block w-full py-3 rounded-lg font-semibold text-center transition-colors ${pkg.isHighlighted
                                         ? 'bg-primary text-primary-foreground hover:opacity-90'
                                         : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
                                         }`}
                                 >
-                                    {pkg.ctaText}
+                                    View Details
                                 </Link>
                             </motion.div>
                         ))}

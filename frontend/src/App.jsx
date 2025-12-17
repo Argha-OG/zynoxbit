@@ -5,6 +5,10 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Services from './pages/Services';
+import ServiceDetails from './pages/ServiceDetails';
+import Jobs from './pages/Jobs';
+import JobDetails from './pages/JobDetails';
+import Policies from './pages/Policies';
 import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
@@ -23,6 +27,10 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/services" element={<Services />} />
+                            <Route path="/services/:id" element={<ServiceDetails />} />
+                            <Route path="/jobs" element={<Jobs />} />
+                            <Route path="/jobs/:id" element={<JobDetails />} />
+                            <Route path="/policies/:type" element={<Policies />} />
                             <Route path="/portfolio" element={<Portfolio />} />
                             <Route path="/blog" element={<Blog />} />
                             <Route path="/contact" element={<Contact />} />

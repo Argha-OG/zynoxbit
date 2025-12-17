@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import logo from '../assets/zynoxbit-web.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,13 +35,13 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-card border-b border-border shadow-lg' : 'bg-transparent'
+        <nav className={`fixed top-4 left-0 right-0 max-w-7xl mx-auto px-6 z-50 transition-all duration-300 rounded-full ${isScrolled ? 'glass-card border border-white/10 shadow-lg' : 'bg-transparent'
             }`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-                        ZynoxBit
+                    <Link to="/" className="flex items-center gap-2 h-full">
+                        <img src={logo} alt="ZynoxBit Logo" className="h-full w-auto object-contain" />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -98,7 +99,7 @@ const Navbar = () => {
                             </Link>
                             <button
                                 onClick={toggleTheme}
-                                className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                                className="p-2 rounded-full hover:bg-secondary transition-colors"
                                 aria-label="Toggle theme"
                             >
                                 {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
@@ -119,75 +120,73 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden glass-card border-t border-border">
-                    <div className="px-4 py-4 space-y-3">
-                        <NavLink
-                            to="/"
-                            onClick={() => setIsOpen(false)}
-                            className={({ isActive }) =>
-                                `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
-                                }`
-                            }
-                        >
-                            Home
-                        </NavLink>
-                        <NavLink
-                            to="/services"
-                            onClick={() => setIsOpen(false)}
-                            className={({ isActive }) =>
-                                `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
-                                }`
-                            }
-                        >
-                            Services
-                        </NavLink>
-                        <NavLink
-                            to="/portfolio"
-                            onClick={() => setIsOpen(false)}
-                            className={({ isActive }) =>
-                                `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
-                                }`
-                            }
-                        >
-                            Portfolio
-                        </NavLink>
-                        <NavLink
-                            to="/blog"
-                            onClick={() => setIsOpen(false)}
-                            className={({ isActive }) =>
-                                `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
-                                }`
-                            }
-                        >
-                            Blog
-                        </NavLink>
-                        <NavLink
-                            to="/contact"
-                            onClick={() => setIsOpen(false)}
-                            className={({ isActive }) =>
-                                `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
-                                }`
-                            }
-                        >
-                            Contact
-                        </NavLink>
-                        <Link
-                            to="/login"
-                            onClick={() => setIsOpen(false)}
-                            className="block px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
-                        >
-                            Login
-                        </Link>
-                        <button
-                            onClick={() => {
-                                toggleTheme();
-                                setIsOpen(false);
-                            }}
-                            className="w-full px-4 py-2 rounded-lg hover:bg-secondary transition-colors flex items-center gap-2"
-                        >
-                            {theme === 'dark' ? <><Sun size={18} /> Light Mode</> : <><Moon size={18} /> Dark Mode</>}
-                        </button>
-                    </div>
+                <div className="absolute top-20 left-0 right-0 md:hidden glass-card border border-white/10 rounded-2xl mx-auto p-4 flex flex-col gap-4 shadow-xl">
+                    <NavLink
+                        to="/"
+                        onClick={() => setIsOpen(false)}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
+                            }`
+                        }
+                    >
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to="/services"
+                        onClick={() => setIsOpen(false)}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
+                            }`
+                        }
+                    >
+                        Services
+                    </NavLink>
+                    <NavLink
+                        to="/portfolio"
+                        onClick={() => setIsOpen(false)}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
+                            }`
+                        }
+                    >
+                        Portfolio
+                    </NavLink>
+                    <NavLink
+                        to="/blog"
+                        onClick={() => setIsOpen(false)}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
+                            }`
+                        }
+                    >
+                        Blog
+                    </NavLink>
+                    <NavLink
+                        to="/contact"
+                        onClick={() => setIsOpen(false)}
+                        className={({ isActive }) =>
+                            `block px-4 py-2 rounded-lg font-medium transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-secondary'
+                            }`
+                        }
+                    >
+                        Contact
+                    </NavLink>
+                    <Link
+                        to="/login"
+                        onClick={() => setIsOpen(false)}
+                        className="block px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
+                    >
+                        Login
+                    </Link>
+                    <button
+                        onClick={() => {
+                            toggleTheme();
+                            setIsOpen(false);
+                        }}
+                        className="w-full px-4 py-2 rounded-lg hover:bg-secondary transition-colors flex items-center gap-2"
+                    >
+                        {theme === 'dark' ? <><Sun size={18} /> Light Mode</> : <><Moon size={18} /> Dark Mode</>}
+                    </button>
                 </div>
             )}
         </nav>
