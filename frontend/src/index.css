@@ -59,6 +59,24 @@
     background-image: radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
       radial-gradient(circle at 80% 80%, hsl(var(--primary) / 0.05) 0%, transparent 50%);
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
 }
 
 @layer utilities {
@@ -104,5 +122,19 @@
 
   .animate-gradient {
     animation: gradient 3s ease infinite;
+  }
+
+  @keyframes scan {
+    0% {
+      top: 0;
+    }
+
+    100% {
+      top: 100%;
+    }
+  }
+
+  .animate-scan {
+    animation: scan 4s linear infinite;
   }
 }

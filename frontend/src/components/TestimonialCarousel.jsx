@@ -1,130 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, EffectCoverflow } from 'swiper/modules';
+import { Quote, Star } from 'lucide-react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
-const TestimonialCarousel = ({ testimonials }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [direction, setDirection] = useState(0);
-
-    const slideVariants = {
-        enter: (direction) => ({
-            x: direction > 0 ? 1000 : -1000,
-            opacity: 0
-        }),
-        center: {
-            zIndex: 1,
-            x: 0,
-            opacity: 1
-        },
-        exit: (direction) => ({
-            zIndex: 0,
-            x: direction < 0 ? 1000 : -1000,
-            opacity: 0
-        })
-    };
-
-    const swipeConfidenceThreshold = 10000;
-    const swipePower = (offset, velocity) => {
-        return Math.abs(offset) * velocity;
-    };
-
-    const paginate = (newDirection) => {
-        setDirection(newDirection);
-        setCurrentIndex((prevIndex) => {
-            let newIndex = prevIndex + newDirection;
-            if (newIndex < 0) newIndex = testimonials.length - 1;
-            if (newIndex >= testimonials.length) newIndex = 0;
-            return newIndex;
-        });
-    };
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            paginate(1);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, [currentIndex]);
+const TestimonialCarousel = ({ testimonials = [] }) => {
+    if (!testimonials || testimonials.length === 0) return null;
 
     return (
-        <div className="relative max-w-4xl mx-auto">
-            <div className="overflow-hidden">
-                <AnimatePresence initial={false} custom={direction}>
-                    <motion.div
-                        key={currentIndex}
-                        custom={direction}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{
-                            x: { type: "spring", stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 }
-                        }}
-                        drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        dragElastic={1}
-                        onDragEnd={(e, { offset, velocity }) => {
-                            const swipe = swipePower(offset.x, velocity.x);
-                            if (swipe < -swipeConfidenceThreshold) {
-                                paginate(1);
-                            } else if (swipe > swipeConfidenceThreshold) {
-                                paginate(-1);
-                            }
-                        }}
-                        className="glass-card p-8 md:p-12 rounded-2xl border border-border"
-                    >
-                        <Quote className="text-primary mb-6" size={48} />
-                        <p className="text-xl md:text-2xl text-foreground mb-6 leading-relaxed">
-                            "{testimonials[currentIndex].quote}"
-                        </p>
-                        <div className="flex items-center gap-4">
-                            <div className="flex-1">
-                                <p className="font-bold text-foreground">{testimonials[currentIndex].author}</p>
-                                <p className="text-sm text-muted-foreground">
-                                    {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
-                                </p>
+        <div className="py-10">
+            <Swiper
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: false,
+                }}
+                pagination={{ clickable: true }}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
+                modules={[EffectCoverflow, Pagination, Autoplay]}
+                className="mySwiper w-full py-12"
+                breakpoints={{
+                    640: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                }}
+            >
+                {testimonials.map((testimonial) => (
+                    <SwiperSlide key={testimonial.id} className="max-w-md">
+                        <div className="glass-card p-8 rounded-2xl border border-border h-full flex flex-col relative mx-4">
+                            <Quote className="text-primary mb-6 w-10 h-10 opacity-50" />
+                            <p className="text-lg text-muted-foreground mb-6 flex-grow italic">
+                                "{testimonial.quote}"
+                            </p>
+
+                            <div className="flex items-center gap-4 mt-auto">
+                                <div className="w-12 h-12 rounded-full overflow-hidden bg-primary/10">
+                                    <img
+                                        src={testimonial.image}
+                                        alt={testimonial.author}
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => {
+                                            e.target.src = `https://ui-avatars.com/api/?name=${testimonial.author}&background=random`;
+                                        }}
+                                    />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-foreground">{testimonial.author}</h4>
+                                    <p className="text-sm text-primary">{testimonial.role}, {testimonial.company}</p>
+                                </div>
                             </div>
-                            <div className="flex gap-1">
-                                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                                    <Star key={i} size={16} fill="currentColor" className="text-primary" />
+
+                            <div className="flex gap-1 mt-4">
+                                {[...Array(testimonial.rating || 5)].map((_, i) => (
+                                    <Star key={i} size={14} fill="currentColor" className="text-yellow-500" />
                                 ))}
                             </div>
                         </div>
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-
-            {/* Navigation Buttons */}
-            <div className="flex items-center justify-center gap-4 mt-8">
-                <button
-                    onClick={() => paginate(-1)}
-                    className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
-                    aria-label="Previous testimonial"
-                >
-                    <ChevronLeft className="text-primary" size={24} />
-                </button>
-                <div className="flex gap-2">
-                    {testimonials.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => {
-                                setDirection(index > currentIndex ? 1 : -1);
-                                setCurrentIndex(index);
-                            }}
-                            className={`h-2 rounded-full transition-all ${index === currentIndex ? 'w-8 bg-primary' : 'w-2 bg-muted'
-                                }`}
-                            aria-label={`Go to testimonial ${index + 1}`}
-                        />
-                    ))}
-                </div>
-                <button
-                    onClick={() => paginate(1)}
-                    className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
-                    aria-label="Next testimonial"
-                >
-                    <ChevronRight className="text-primary" size={24} />
-                </button>
-            </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
     );
 };

@@ -65,20 +65,20 @@ const Contact = () => {
         {
             icon: <Mail className="w-6 h-6" />,
             title: "Email Us",
-            content: "hello@zynoxbit.com",
-            link: "mailto:hello@zynoxbit.com"
+            content: "zynoxbit@gmail.com",
+            link: "https://wa.me/8801999389199"
         },
         {
             icon: <Phone className="w-6 h-6" />,
-            title: "Call Us",
-            content: "+880 1234-567890",
-            link: "tel:+8801234567890"
+            title: "WhatsApp",
+            content: "+880 1999-389199",
+            link: "https://wa.me/8801999389199"
         },
         {
             icon: <MapPin className="w-6 h-6" />,
             title: "Visit Us",
-            content: "Dhaka, Bangladesh",
-            link: "#"
+            content: "Bangladesh",
+            link: "https://wa.me/8801999389199"
         },
         {
             icon: <Clock className="w-6 h-6" />,
@@ -278,7 +278,7 @@ const Contact = () => {
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-center">
                                 <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-                                <h3 className="text-2xl font-bold mb-2">Dhaka, Bangladesh</h3>
+                                <h3 className="text-2xl font-bold mb-2">Bangladesh</h3>
                                 <p className="text-muted-foreground">Serving clients worldwide</p>
                             </div>
                         </div>

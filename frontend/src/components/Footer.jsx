@@ -61,6 +61,26 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Contact Us</h3>
+                        <ul className="mt-4 space-y-4">
+                            <li>
+                                <a href="https://wa.me/8801999389199" className="text-base text-muted-foreground hover:text-primary flex items-center gap-2">
+                                    <span className="font-semibold">WhatsApp:</span> +880 1999-389199
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:zynoxbit@gmail.com" className="text-base text-muted-foreground hover:text-primary flex items-center gap-2">
+                                    <span className="font-semibold">Email:</span> zynoxbit@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/8801999389199" className="text-base text-muted-foreground hover:text-primary flex items-center gap-2">
+                                    <span className="font-semibold">Address:</span> Bangladesh
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="mt-8 border-t border-border pt-8 md:flex md:items-center md:justify-between">
                     <div className="flex space-x-6 md:order-2">
