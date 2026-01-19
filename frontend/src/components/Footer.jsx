@@ -75,8 +75,9 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://wa.me/8801999389199" className="text-base text-muted-foreground hover:text-primary flex items-center gap-2">
-                                    <span className="font-semibold">Address:</span> Bangladesh
+                                <a href="https://maps.google.com/?q=35,+Sungai+Besi+Serdang+Perdana,+Taman+Serdang+Perdana,+43300+Seri+Kembangan,+Selangor" target="_blank" rel="noopener noreferrer" className="text-base text-muted-foreground hover:text-primary flex items-start gap-2">
+                                    <span className="font-semibold shrink-0">Address:</span>
+                                    <span>35, Sungai Besi Serdang Perdana, Taman Serdang Perdana, 43300 Seri Kembangan, Selangor</span>
                                 </a>
                             </li>
                         </ul>

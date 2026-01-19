@@ -50,8 +50,9 @@ const Home = () => {
     return (
         <div className="relative overflow-hidden">
             <SEO
-                title="Home"
-                description="ZynoxBit - #1 Software Agency in Bangladesh. We build MERN stack websites, ecommerce platforms, and business portfolios. Delivery in 24 hours."
+                title="Best Software Agency in Malaysia & Bangladesh"
+                description="ZynoxBit delivers top-tier web development and digital marketing services. Helping clients in Malaysia, Bangladesh, and globally build scalable software solutions."
+                keywords="software agency Malaysia, web development Bangladesh, client success stories, custom software development, digital agency Kuala Lumpur, Dhaka tech company"
             />
             {/* 1. Hero Section - Dashboard Style */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">

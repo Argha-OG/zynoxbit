@@ -12,12 +12,40 @@ const SEO = ({ title, description, keywords, image, url, type = 'website' }) => 
     const metaImage = image ? `${siteUrl}${image}` : `${siteUrl}${siteImage}`;
     const metaUrl = url ? `${siteUrl}${url}` : siteUrl;
 
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ZynoxBit",
+        "url": siteUrl,
+        "logo": `${siteUrl}${siteImage}`,
+        "description": siteDescription,
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Seri Kembangan",
+            "addressRegion": "Selangor",
+            "addressCountry": "MY"
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "WhatsApp": "+60-11-2140-4200",
+                "contactType": "customer service",
+                "areaServed": ["MY", "BD", "Global"]
+            }
+        ],
+        "sameAs": [
+            "https://www.facebook.com/zynoxbit",
+            "https://twitter.com/zynoxbit",
+            "https://www.linkedin.com/company/zynoxbit"
+        ]
+    };
+
     return (
         <Helmet>
             {/* Standard Meta Tags */}
             <title>{fullTitle}</title>
             <meta name="description" content={metaDescription} />
-            <meta name="keywords" content={keywords || "software agency bangladesh, web development, MERN stack, seo services, digital marketing, zynoxbit, website design"} />
+            <meta name="keywords" content={keywords || "software agency Malaysia, web development Bangladesh, MERN stack, seo services, digital marketing, client success stories, zynoxbit, website design, mobile apps, custom software"} />
             <link rel="canonical" href={metaUrl} />
 
             {/* Open Graph / Facebook */}
@@ -33,6 +61,11 @@ const SEO = ({ title, description, keywords, image, url, type = 'website' }) => 
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={metaDescription} />
             <meta name="twitter:image" content={metaImage} />
+
+            {/* Structured Data */}
+            <script type="application/ld+json">
+                {JSON.stringify(schemaData)}
+            </script>
         </Helmet>
     );
 };

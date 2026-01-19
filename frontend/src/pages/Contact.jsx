@@ -273,13 +273,36 @@ const Contact = () => {
 
             {/* 4. Stylized Location Map */}
             <div className="max-w-7xl mx-auto mb-32">
-                <div className="glass-card rounded-2xl border border-border overflow-hidden">
-                    <div className="aspect-video bg-gradient-to-br from-primary/10 to-purple-600/10 relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-center">
-                                <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-                                <h3 className="text-2xl font-bold mb-2">Bangladesh</h3>
-                                <p className="text-muted-foreground">Serving clients worldwide</p>
+                <div className="glass-card rounded-2xl border border-border overflow-hidden h-[450px] relative group container-map-fix">
+                    <iframe
+                        src="https://maps.google.com/maps?q=35%2C%20Sungai%20Besi%20Serdang%20Perdana%2C%20Taman%20Serdang%20Perdana%2C%2043300%20Seri%20Kembangan%2C%20Selangor&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        className="absolute inset-0 w-full h-full border-0 transition-all duration-700"
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
+
+                    {/* Floating Address Card */}
+                    <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-80 bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-2xl border border-white/20">
+                        <div className="flex items-start gap-4">
+                            <div className="p-3 rounded-full bg-primary/10 text-primary shrink-0">
+                                <MapPin size={24} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-gray-900 mb-1">Our Location</h3>
+                                <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                                    35, Sungai Besi Serdang Perdana,<br />
+                                    Taman Serdang Perdana, 43300<br />
+                                    Seri Kembangan, Selangor
+                                </p>
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=35,+Sungai+Besi+Serdang+Perdana,+Taman+Serdang+Perdana,+43300+Seri+Kembangan,+Selangor"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+                                >
+                                    Open in Google Maps <Globe size={12} />
+                                </a>
                             </div>
                         </div>
                     </div>

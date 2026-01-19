@@ -1,45 +1,13 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-import { Linkedin, Twitter, Globe, Github } from 'lucide-react';
+import { Linkedin, Twitter, Github, Mail } from 'lucide-react';
+import { TEAM_MEMBERS } from '../data/team';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-
-const TEAM_MEMBERS = [
-    {
-        name: "Alex Morgan",
-        role: "CEO & Founder",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400",
-        social: { linkedin: "#", twitter: "#" }
-    },
-    {
-        name: "Sarah Chen",
-        role: "Lead Developer",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400",
-        social: { linkedin: "#", github: "#" }
-    },
-    {
-        name: "Michael Ross",
-        role: "UI/UX Designer",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400",
-        social: { linkedin: "#", dribbble: "#" }
-    },
-    {
-        name: "Jessica Stark",
-        role: "Marketing Director",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400",
-        social: { linkedin: "#", twitter: "#" }
-    },
-    {
-        name: "David Kim",
-        role: "Backend Architect",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400&h=400",
-        social: { linkedin: "#", github: "#" }
-    }
-];
 
 const TeamCarousel = () => {
     return (
@@ -76,9 +44,9 @@ const TeamCarousel = () => {
                         <div className="relative w-full h-full">
                             {/* Full Height Image */}
                             <img
-                                src={member.image}
+                                src={member.photo}
                                 alt={member.name}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                             />
 
                             {/* Gradient Overlay */}
@@ -88,19 +56,30 @@ const TeamCarousel = () => {
                             <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 transform transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                                 <div className="text-center">
                                     <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
-                                    <p className="text-primary text-xs font-semibold uppercase tracking-wider mb-3">{member.role}</p>
+                                    <p className="text-primary text-xs font-semibold uppercase tracking-wider mb-3">{member.designation}</p>
 
                                     {/* Social Icons */}
                                     <div className="flex justify-center gap-3 pt-3 border-t border-white/10">
-                                        <button className="text-gray-300 hover:text-white hover:bg-primary/20 p-1.5 rounded-full transition-all">
-                                            <Linkedin size={16} />
-                                        </button>
-                                        <button className="text-gray-300 hover:text-white hover:bg-primary/20 p-1.5 rounded-full transition-all">
-                                            <Twitter size={16} />
-                                        </button>
-                                        <button className="text-gray-300 hover:text-white hover:bg-primary/20 p-1.5 rounded-full transition-all">
-                                            <Globe size={16} />
-                                        </button>
+                                        {member.socialMedia?.linkedin && (
+                                            <a href={member.socialMedia.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white hover:bg-primary/20 p-1.5 rounded-full transition-all">
+                                                <Linkedin size={16} />
+                                            </a>
+                                        )}
+                                        {member.socialMedia?.twitter && (
+                                            <a href={member.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white hover:bg-primary/20 p-1.5 rounded-full transition-all">
+                                                <Twitter size={16} />
+                                            </a>
+                                        )}
+                                        {member.socialMedia?.github && (
+                                            <a href={member.socialMedia.github} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white hover:bg-primary/20 p-1.5 rounded-full transition-all">
+                                                <Github size={16} />
+                                            </a>
+                                        )}
+                                        {member.email && (
+                                            <a href={`mailto:${member.email}`} className="text-gray-300 hover:text-white hover:bg-primary/20 p-1.5 rounded-full transition-all">
+                                                <Mail size={16} />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>

@@ -1,81 +1,105 @@
+import img1 from "./../assets/1.png"
+import img2 from "./../assets/2.png"
+import img3 from "./../assets/3.png"
+import img4 from "./../assets/4.png"
+import img5 from "./../assets/5.png"
+import img6 from "./../assets/6.png"
+import img7 from "./../assets/7.png"
+
 /**
  * Team members data
  * @type {Array<Object>}
  */
 export const TEAM_MEMBERS = [
     {
-        id: "team_01",
-        name: "Sarah Ahmed",
-        designation: "Founder & CEO",
-        photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-        about: "With over 10 years of experience in digital innovation, Sarah leads ZynoxBit's vision to create transformative digital experiences. Her passion for design and technology drives our commitment to excellence.",
-        email: "sarah@zynoxbit.com",
-        socialMedia: {
-            linkedin: "https://linkedin.com/in/sarahahmed",
-            twitter: "https://twitter.com/sarahahmed",
-            github: "https://github.com/sarahahmed"
-        }
-    },
-    {
-        id: "team_02",
-        name: "Kamal Hassan",
-        designation: "Lead Developer",
-        photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-        about: "Kamal is a full-stack wizard who turns complex problems into elegant solutions. With expertise in React, Node.js, and cloud architecture, he ensures every project is built to scale.",
-        email: "kamal@zynoxbit.com",
-        socialMedia: {
-            linkedin: "https://linkedin.com/in/kamalhassan",
-            twitter: "https://twitter.com/kamalhassan",
-            github: "https://github.com/kamalhassan"
-        }
-    },
-    {
-        id: "team_03",
-        name: "Nadia Rahman",
-        designation: "Creative Director",
-        photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-        about: "Nadia brings brands to life through stunning visual design. Her eye for detail and passion for user experience ensures every pixel serves a purpose and every interaction delights.",
-        email: "nadia@zynoxbit.com",
-        socialMedia: {
-            linkedin: "https://linkedin.com/in/nadiarahman",
-            twitter: "https://twitter.com/nadiarahman",
-            dribbble: "https://dribbble.com/nadiarahman"
-        }
-    },
-    {
-        id: "team_04",
-        name: "Imran Khan",
-        designation: "Marketing Strategist",
-        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-        about: "Imran crafts data-driven marketing strategies that deliver real results. His expertise in SEO, content marketing, and analytics helps our clients reach their target audience effectively.",
-        email: "imran@zynoxbit.com",
-        socialMedia: {
-            linkedin: "https://linkedin.com/in/imrankhan",
-            twitter: "https://twitter.com/imrankhan"
-        }
-    },
-    {
-        id: "team_05",
-        name: "Fatima Ali",
-        designation: "UX Researcher",
-        photo: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop",
-        about: "Fatima ensures our designs are grounded in user needs and behaviors. Through research and testing, she helps us create experiences that truly resonate with users.",
-        email: "fatima@zynoxbit.com",
-        socialMedia: {
-            linkedin: "https://linkedin.com/in/fatimaali",
-            twitter: "https://twitter.com/fatimaali"
-        }
-    },
-    {
-        id: "team_06",
-        name: "Rashid Ahmed",
-        designation: "Backend Engineer",
-        photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-        about: "Rashid builds robust, scalable backend systems that power our applications. His expertise in databases, APIs, and server architecture ensures everything runs smoothly behind the scenes.",
-        email: "rashid@zynoxbit.com",
-        socialMedia: {
-            linkedin: "https://linkedin.com/in/rashidahmed",
-            github: "https://github.com/rashidahmed"
-        }
+    "id": "team_01",
+    "name": "Argha Biswas",
+    "designation": "Operation In-charge & Full-Stack Developer",
+    "photo": img1,
+    "about": "Argha combines technical expertise with operational leadership to drive ZynoxBit's development lifecycle. As a Full-Stack Developer and Operation In-charge, he focuses on building scalable solutions while ensuring streamlined project execution and efficiency.",
+    "email": "argha@zynoxbit.com",
+    "socialMedia": {
+        "linkedin": "https://linkedin.com/in/argha-biswas",
+        "twitter": "https://twitter.com/Argha.OG",
+        "github": "https://github.com/Argha-OG"
     }
+},
+{
+    "id": "team_02",
+    "name": "Abu Siam Khan",
+    "designation": "Customer Relationship & WordPress Developer",
+    "photo": img6,
+    "about": "Abu Siam Khan bridges the gap between client satisfaction and technical execution. As a WordPress Developer and Customer Relationship specialist, he ensures that digital solutions are tailored perfectly to meet client needs while maintaining high standards of performance.",
+    "email": "siam@zynoxbit.com",
+    "socialMedia": {
+        "linkedin": "https://linkedin.com/in/abusiamkhan",
+        "twitter": "https://twitter.com/abusiamkhan",
+        "github": "https://github.com/abusiamkhan"
+    }
+},
+    {
+    "id": "team_03",
+    "name": "MD. Ishrak",
+    "designation": "Graphics Designer & Business Influencer",
+    "photo": img2,
+    "about": "MD. Ishrak bridges the gap between creative visual storytelling and strategic brand growth. As a Graphics Designer and Business Influencer, he specializes in crafting high-impact visual identities and leveraging market trends to enhance ZynoxBit’s digital presence and community engagement.",
+    "email": "ishrak@zynoxbit.com",
+    "socialMedia": {
+        "linkedin": "https://linkedin.com/in/mdishrak",
+        "twitter": "https://twitter.com/mdishrak",
+        "github": "https://github.com/mdishrak"
+    }
+},
+{
+    "id": "team_04",
+    "name": "MD. Zihad",
+    "designation": "Senior Full-Stack Developer",
+    "photo": img3,
+    "about": "MD. Zihad brings extensive technical expertise to the team as a Senior Full-Stack Developer. He is dedicated to building robust, scalable applications and mentoring the development team to ensure ZynoxBit delivers high-performance digital solutions across the entire technology stack.",
+    "email": "zihad@zynoxbit.com",
+    "socialMedia": {
+        "linkedin": "https://linkedin.com/in/mdzihad",
+        "twitter": "https://twitter.com/mdzihad",
+        "github": "https://github.com/mdzihad"
+    }
+},
+    {
+    "id": "team_05",
+    "name": "Ratul Islam",
+    "designation": "System Designer & Full-Stack Developer",
+    "photo": img4,
+    "about": "Ratul Islam specializes in the intersection of architectural system design and full-stack implementation. He focuses on building scalable infrastructure and efficient codebases, ensuring that ZynoxBit's digital systems are built on a solid, future-proof foundation.",
+    "email": "ratul@zynoxbit.com",
+    "socialMedia": {
+        "linkedin": "https://linkedin.com/in/ratulislam",
+        "twitter": "https://twitter.com/ratulislam",
+        "github": "https://github.com/ratulislam"
+    }
+},
+{
+    "id": "team_06",
+    "name": "Sheikh Mhafuz",
+    "designation": "UI Team Manager",
+    "photo": img5,
+    "about": "Sheikh Mhafuz leads the User Interface team with a focus on aesthetic precision and user-centric design. He manages the design lifecycle to ensure every ZynoxBit project delivers an intuitive, visually stunning experience that perfectly aligns with client objectives.",
+    "email": "mhafuz@zynoxbit.com",
+    "socialMedia": {
+        "linkedin": "https://linkedin.com/in/sheikhmhafuz",
+        "twitter": "https://twitter.com/sheikhmhafuz",
+        "github": "https://github.com/sheikhmhafuz"
+    }
+},
+    {
+    "id": "team_07",
+    "name": "Sneha Mallick",
+    "designation": "Brand Ambassador",
+    "photo": img7,
+    "about": "As the Brand Ambassador for ZynoxBit, Sneha Mallick is the face of our company's values and mission. She focuses on building brand awareness and fostering positive relationships within the community and with our global partners.",
+    "email": "sneha@zynoxbit.com",
+    "socialMedia": {
+        "linkedin": "https://linkedin.com/in/snehamallick",
+        "twitter": "https://twitter.com/snehamallick",
+        "github": "https://github.com/snehamallick"
+    }
+}
 ];
