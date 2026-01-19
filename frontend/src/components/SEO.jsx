@@ -48,6 +48,12 @@ const SEO = ({ title, description, keywords, image, url, type = 'website' }) => 
             <meta name="keywords" content={keywords || "software agency Malaysia, web development Bangladesh, MERN stack, seo services, digital marketing, client success stories, zynoxbit, website design, mobile apps, custom software"} />
             <link rel="canonical" href={metaUrl} />
 
+            {/* Geo Tags for Local SEO */}
+            <meta name="geo.region" content="MY-10, BD-13" />
+            <meta name="geo.placename" content="Seri Kembangan, Dhaka" />
+            <meta name="geo.position" content="3.028196;101.709665" />
+            <meta name="ICBM" content="3.028196, 101.709665" />
+
             {/* Open Graph / Facebook */}
             <meta property="og:type" content={type} />
             <meta property="og:title" content={fullTitle} />

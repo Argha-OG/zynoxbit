@@ -24,7 +24,7 @@ const Modal = ({ isOpen, onClose, children, title, className = "", style = {} })
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                                 transition={{ type: "spring", duration: 0.5 }}
-                                className={`relative w-full max-w-4xl bg-white rounded-2xl border border-border p-6 md:p-8 max-h-[90vh] overflow-y-auto ${className}`}
+                                className={`relative w-full max-w-4xl !bg-white dark:!bg-zinc-950 rounded-2xl border border-border p-6 md:p-8 max-h-[90vh] overflow-y-auto ${className}`}
                                 style={style}
                                 onClick={(e) => e.stopPropagation()}
                             >
